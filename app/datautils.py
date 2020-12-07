@@ -1,23 +1,22 @@
 import tarfile
-import os
 from utils import *
 import requests
 
 def extract_archived_data(data_filename):
-    if not os.path.exists(DATA_DIR):
-        os.makedirs(DATA_DIR)
     tar = tarfile.open(data_filename, "r:gz")
     tar.extractall(DATA_DIR)
     tar.close()
 
 def get_dataset_name():
-    print(DATA_DIR)
     data_subdirs = os.listdir(DATA_DIR)
     if len(data_subdirs) == 1:
         return data_subdirs[0]
+    elif len(data_subdirs) == 0:
+        raise Exception(
+            "The data set should contain directory with data!")
     else:
         raise Exception(
-            "The data set should contain only one directory with data!")
+            "The data set should contain ONLY ONE directory with data!")
 
 #taken from this StackOverflow answer: https://stackoverflow.com/a/39225039
 

@@ -1,7 +1,11 @@
 .vscode
 
-scripts
+scripts/
 
-models
+/models/
 
-app/__pycache*
+__pycache*
+
+/data/
+
+/tmp/
