@@ -1,11 +1,11 @@
 import os
 import random
 from PIL import Image
-from pathlib import Path
+from utils import *
 
-CIRCLE_MARK = Path("../watermark/circle.png")
-HEART_MARK = Path("../watermark/heart.png")
-STAR_MARK = Path("../watermark/star.png")
+CIRCLE_MARK = WATERMARK_DIR.joinpath("circle.png")
+HEART_MARK = WATERMARK_DIR.joinpath("heart.png")
+STAR_MARK = WATERMARK_DIR.joinpath("star.png")
 
 
 def add_watermark_to_data(dataset_path, watermark_name):
