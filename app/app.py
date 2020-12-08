@@ -20,21 +20,21 @@ import json
 
 # print(a)
 
-# extract_tar_data('D:\personal\watermarking-of-neural-networks\dogs.tar.gz')
+extract_tar_data('D:\personal\watermarking-of-neural-networks\dogs.tar.gz')
 
-# marker = Processor()
+marker = Processor()
 
-# watermark = Watermark('pug','pomeranian','star', (140, 140))
+watermark = Watermark('pug','pomeranian','star', (140, 140))
 
-# save_watermark_info(watermark)
+save_data_pollution_watermark(watermark)
 
-# marker.apply_watermark(watermark)
+marker.apply_watermark(watermark)
 
-processor = KeyedProcessor()
+# processor = KeyedProcessor()
 
-watermark = KeyedWatermark([Command.INVERT])
+# watermark = KeyedWatermark([Command.INVERT])
 
-save_keyed_watermark(watermark)
+# save_keyed_watermark(watermark)
 
 
 # processor.apply_watermark(watermark)

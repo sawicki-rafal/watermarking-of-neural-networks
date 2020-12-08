@@ -1,6 +1,6 @@
 from datautils import SYMBOL_DIR,get_class_dir_from_train
 
-class Watermark:
+class Waterark:
     def __init__(self, base_class, new_class, watermark_symbol, watermark_size):
         self.base_class = base_class
         self.new_class = new_class

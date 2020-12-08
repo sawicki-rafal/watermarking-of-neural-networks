@@ -4,7 +4,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR.joinpath('data')
 TMP_DIR = BASE_DIR.joinpath('tmp')
-WATERMARK_DIR = BASE_DIR.joinpath('watermark')
+SYMBOL_DIR = BASE_DIR.joinpath('watermark')
 
 
 def init_dirs():
