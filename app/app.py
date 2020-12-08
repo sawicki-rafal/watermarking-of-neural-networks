@@ -1,18 +1,54 @@
 from pathlib import Path
-from watermark import *
-from datautils import *
-from utils import *
+from datautils import extract_tar_data
+from data_pollution.watermark import Watermark
+from data_pollution.processor import Processor
+from data_pollution.saver import save_watermark_info as save_data_pollution_watermark
+from keyed_network.saver import save_watermark_info as save_keyed_watermark
 
-init_dirs()
-#data_name = sys.argv[1]
-data_name = BASE_DIR.joinpath('models/dogs.tar.gz')
+from keyed_network.processor import Processor as KeyedProcessor
+from keyed_network.watermark import Watermark as KeyedWatermark
+from keyed_network.command import Command
 
-extract_archived_data(data_name)
+import json
+# pc = ProcessingChain()
+# pc.add(ProcessingCommand.FLIP)
+# pc.add(ProcessingCommand.INVERT)
 
-dataset_name = get_dataset_name()
+# pc.apply('C:\\Users\\RAFASAWI\\Desktop\\inz inf\\python test\\pug\\marked\\pug_5.jpg')
 
-path = DATA_DIR.joinpath(dataset_name)
+# a = DataUtils.get_classes_from_data()
+
+# print(a)
+
+# extract_tar_data('D:\personal\watermarking-of-neural-networks\dogs.tar.gz')
+
+# marker = Processor()
+
+# watermark = Watermark('pug','pomeranian','star', (140, 140))
+
+# save_watermark_info(watermark)
+
+# marker.apply_watermark(watermark)
+
+processor = KeyedProcessor()
+
+watermark = KeyedWatermark([Command.INVERT])
+
+save_keyed_watermark(watermark)
 
 
-add_watermark_to_data(path,'circle')
+# processor.apply_watermark(watermark)
+
+# init_dirs()
+# #data_name = sys.argv[1]
+# data_name = BASE_DIR.joinpath('models/dogs.tar.gz')
+
+# extract_archived_data(data_name)
+
+# dataset_name = get_dataset_name()
+
+# path = DATA_DIR.joinpath(dataset_name)
+
+
+# add_watermark_to_data(path,'circle')
 
