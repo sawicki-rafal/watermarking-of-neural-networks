@@ -9,3 +9,6 @@ __pycache*
 /data/
 
 /tmp/
+
+*.tar.gz
+*.tar
