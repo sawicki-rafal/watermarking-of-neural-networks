@@ -9,6 +9,7 @@ from keyed_network.processor import Processor as KeyedProcessor
 from keyed_network.watermark import Watermark as KeyedWatermark
 from keyed_network.command import Command
 
+from detector.reader import *
 import json
 # pc = ProcessingChain()
 # pc.add(ProcessingCommand.FLIP)
@@ -20,15 +21,28 @@ import json
 
 # print(a)
 
-extract_tar_data('D:\personal\watermarking-of-neural-networks\dogs.tar.gz')
+# extract_tar_data('D:\personal\watermarking-of-neural-networks\dogs.tar.gz')
 
-marker = Processor()
+# marker = Processor()
 
-watermark = Watermark('pug','pomeranian','star', (140, 140))
+# watermark = Watermark('pug','pomeranian','star', (140, 140))
 
-save_data_pollution_watermark(watermark)
+# save_data_pollution_watermark(watermark)
 
-marker.apply_watermark(watermark)
+
+
+
+name = 'watermark_'
+untar_watermark(name+'.tar.gz')
+watermark, imgs  = read("D:/personal/watermarking-of-neural-networks/tmp/"+name+"/watermark_info.json")
+
+print(watermark.get_info())
+print(imgs)
+
+
+processor = KeyedProcessor()
+processor.apply_watermark(watermark)
+# marker.apply_watermark(watermark)
 
 # processor = KeyedProcessor()
 

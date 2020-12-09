@@ -9,7 +9,7 @@ class Watermark:
     
     def get_info(self):
         return {
-            "type": "key",
+            "type": "keyed",
             "info": {
                 "transformations": self.transformation_commands
             }

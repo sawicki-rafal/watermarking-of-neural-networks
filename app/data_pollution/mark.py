@@ -26,10 +26,10 @@ class Waterark:
     
     def get_info(self):
         return {
-            "type": "data-polution",
+            "type": "data_polution",
             "info": {
-                "base-class": self.base_class,
-                "new-class": self.new_class,
+                "base_class": self.base_class,
+                "new_class": self.new_class,
                 "symbol": self.watermark_symbol,
                 "width": self.watermark_size[0],
                 "height": self.watermark_size[1]
