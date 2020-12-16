@@ -9,7 +9,7 @@ DATA_DIR = BASE_DIR.joinpath('data')
 TMP_DIR = BASE_DIR.joinpath('tmp')
 SYMBOL_DIR = BASE_DIR.joinpath('symbol')
 
-def get_dataset_dir():
+def __get_dataset_dir():
     return DATA_DIR.joinpath(__getdataset_name())
 
 def __getdataset_name():
@@ -22,33 +22,23 @@ def __getdataset_name():
          raise Exception("The data set should contain ONLY ONE directory with data!")
 
 def get_train_dir():
-    return get_dataset_dir().joinpath('train')
+    return __get_dataset_dir().joinpath('train')
 
 def get_valid_dir():
-    return get_dataset_dir().joinpath('valid')
+    return __get_dataset_dir().joinpath('valid')
 
 def extract_tar_data(data_filename):
+    print('Trying to open file ' + data_filename)
     tar = tarfile.open(data_filename, "r:gz")
+    print('File opened successfully')
+    print('Starting extraction of ' + data_filename)
     tar.extractall(DATA_DIR)
+    print('Data successfully extracted')
     tar.close()
 
-def get_classes_from_data():
-    classes_list = []
-    for root, dirs, files in os.walk(get_train_dir()):
-        for dir_name in dirs:
-            classes_list.append(dir_name)
-    return classes_list
-
-def get_class_dir_from_train(class_name):
-    return get_train_dir().joinpath(class_name)
-
-def get_class_dir_from_valid(class_name):
-    return get_valid_dir().joinpath(class_name)
-
-def get_images_to_be_marked(dir_path, rate=0.1):
-    images_list = []
-    for root, dirs, files in os.walk(dir_path):
-        for file in files:
-            images_list.append((file, os.path.join(root, file)))
-    marked_images_counter = int(rate * len(images_list))
-    return random.sample(images_list, marked_images_counter)
+def save__data_to_tarfile():
+    print('Trying to save watermarked data')
+    watermarkinfo_file_name = __getdataset_name() + "_watermarked"
+    with tarfile.open(watermarkinfo_file_name+".tar.gz", "w:gz") as tar:
+        tar.add(__get_dataset_dir(),watermarkinfo_file_name)
+    print('Watermarked data saved successfully')
